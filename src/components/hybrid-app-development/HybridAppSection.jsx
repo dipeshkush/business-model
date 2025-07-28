@@ -17,7 +17,7 @@ export default function HybridAppSection() {
                     {/* Center Image */}
                     <div className="bg-[#C7DEA4] rounded-xl shadow-lg p-4 sm:p-6 max-w-[300px] w-full mx-auto">
                         <Image
-                            src="/Icons/image1.png"
+                            src="/icons/image1.png"
                             alt="Hybrid App"
                             width={300}
                             height={300}
