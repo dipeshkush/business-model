@@ -15,7 +15,7 @@ export default function CTABottom() {
         transition={{ duration: 0.6 }}
         className="text-2xl md:text-2xl font-semibold text-gray-900 mb-4"
       >
-       Your Data is Speaking. Let AI Help You Listen.
+       Ready to Launch on the Blockchain? Let’s Build It Right.
       </motion.h2>
 
       <motion.p
@@ -24,7 +24,7 @@ export default function CTABottom() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-gray-700 text-sm md:text-sm max-w-xl mx-auto mb-6"
       >
-       Let’s build an intelligent system that works 24x7, improves with time, and gives your business a competitive edge.
+       Whether it’s your first DApp, a token launch, or a full scale DeFi platform - we bring the code, clarity, and compliance.
       </motion.p>
 
       <motion.div
@@ -39,7 +39,7 @@ export default function CTABottom() {
           className="bg-[#5B66AB] hover:bg-indigo-500 text-white font-medium py-3 px-6 rounded-full flex items-center gap-2 transition"
         >
           <AiOutlinePhone size={18} />
-          Talk to Our AI Team
+          Request a Free Blockchain Strategy Call
         </motion.button>
       </motion.div>
     </div>
