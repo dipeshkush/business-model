@@ -17,7 +17,7 @@ export default function HybridAppSection() {
                     {/* Center Image */}
                     <div className="bg-[#C7DEA4] rounded-xl shadow-lg p-4 sm:p-6 max-w-[300px] w-full mx-auto">
                         <Image
-                            src="/icons/image1.png"
+                            src="/icons/Image1.png"
                             alt="Hybrid App"
                             width={300}
                             height={300}
@@ -27,7 +27,7 @@ export default function HybridAppSection() {
 
                     {/* Top-left Icon (hidden on small screens) */}
                     <Image
-                        src="/icons/image2.png"
+                        src="/icons/Image2.png"
                         alt="Top Left Icon"
                         width={100}
                         height={50}
@@ -36,7 +36,7 @@ export default function HybridAppSection() {
 
                     {/* Top-right Icon (hidden on small screens) */}
                     <Image
-                        src="/icons/image3.png"
+                        src="/icons/Image3.png"
                         alt="Top Right Icon"
                         width={100}
                         height={60}
