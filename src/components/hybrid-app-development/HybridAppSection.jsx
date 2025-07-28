@@ -27,7 +27,7 @@ export default function HybridAppSection() {
 
                     {/* Top-left Icon (hidden on small screens) */}
                     <Image
-                        src="/Icons/image2.png"
+                        src="/icons/image2.png"
                         alt="Top Left Icon"
                         width={100}
                         height={50}
@@ -36,7 +36,7 @@ export default function HybridAppSection() {
 
                     {/* Top-right Icon (hidden on small screens) */}
                     <Image
-                        src="/Icons/image3.png"
+                        src="/icons/image3.png"
                         alt="Top Right Icon"
                         width={100}
                         height={60}
@@ -45,7 +45,7 @@ export default function HybridAppSection() {
 
                     {/* Bottom-right Icon (hidden on small screens) */}
                     <Image
-                        src="/Icons/image4.png"
+                        src="/icons/image4.png"
                         alt="Bottom Right Icon"
                         width={100}
                         height={50}
