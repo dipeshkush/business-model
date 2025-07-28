@@ -21,11 +21,14 @@ export default function TechStack() {
           Modern Tech Stack,<br />
           Future Proof Apps
         </h2>
-
       </div>
+
       <div className="flex flex-wrap justify-center items-center gap-8">
         {techStack.map((tech, index) => (
-          <div key={index} className="w-[60px] md:w-[100px] lg:w-[100px] h-auto">
+          <div
+            key={index}
+            className="w-[60px] md:w-[100px] lg:w-[100px] h-auto transition-transform duration-300 hover:scale-110"
+          >
             <Image
               src={tech.src}
               alt={tech.name}

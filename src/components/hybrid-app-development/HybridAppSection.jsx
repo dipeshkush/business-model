@@ -1,9 +1,42 @@
 'use client';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import Image from 'next/image';
 
 export default function HybridAppSection() {
+    const sectionRef = useRef(null);
+    const imageRef = useRef(null);
+    const icon1Ref = useRef(null);
+    const icon2Ref = useRef(null);
+    const icon3Ref = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // Main image animation
+            gsap.from(imageRef.current, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.2,
+                ease: 'power3.out'
+            });
+
+            // Icons animation
+            gsap.from([icon1Ref.current, icon2Ref.current, icon3Ref.current], {
+                opacity: 0,
+                scale: 0.8,
+                stagger: 0.2,
+                duration: 0.8,
+                delay: 0.4,
+                ease: 'back.out(1.7)'
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="w-full px-4 py-16 text-center">
+        <section ref={sectionRef} className="w-full px-4 py-16 text-center">
             <div className="max-w-4xl mx-auto relative">
                 {/* Headings */}
                 <h1 className="text-3xl md:text-4xl font-semibold text-black leading-snug">
@@ -15,7 +48,10 @@ export default function HybridAppSection() {
                 {/* Main Image with Positioned Icons */}
                 <div className="relative mt-14 flex justify-center items-center">
                     {/* Center Image */}
-                    <div className="bg-[#C7DEA4] rounded-xl shadow-lg p-4 sm:p-6 max-w-[300px] w-full mx-auto">
+                    <div
+                        ref={imageRef}
+                        className="bg-[#C7DEA4] rounded-xl shadow-lg p-4 sm:p-6 max-w-[300px] w-full mx-auto"
+                    >
                         <Image
                             src="/icons/Image1.png"
                             alt="Hybrid App"
@@ -25,8 +61,9 @@ export default function HybridAppSection() {
                         />
                     </div>
 
-                    {/* Top-left Icon (hidden on small screens) */}
+                    {/* Top-left Icon */}
                     <Image
+                        ref={icon1Ref}
                         src="/icons/Image2.png"
                         alt="Top Left Icon"
                         width={100}
@@ -34,8 +71,9 @@ export default function HybridAppSection() {
                         className="hidden md:block absolute top-4 left-[260px] -translate-x-full -translate-y-1/2 z-20"
                     />
 
-                    {/* Top-right Icon (hidden on small screens) */}
+                    {/* Top-right Icon */}
                     <Image
+                        ref={icon2Ref}
                         src="/icons/Image3.png"
                         alt="Top Right Icon"
                         width={100}
@@ -43,8 +81,9 @@ export default function HybridAppSection() {
                         className="hidden md:block absolute top-1 right-[290px] translate-x-full -translate-y-1/2 z-20"
                     />
 
-                    {/* Bottom-right Icon (hidden on small screens) */}
+                    {/* Bottom-right Icon */}
                     <Image
+                        ref={icon3Ref}
                         src="/icons/image4.png"
                         alt="Bottom Right Icon"
                         width={100}

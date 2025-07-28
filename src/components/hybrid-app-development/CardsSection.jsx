@@ -45,7 +45,7 @@ export default function CardsSection() {
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg min-h-[500px] max-w-sm w-full space-y-4 shadow-lg p-10 text-center border hover:shadow-xl transition-all duration-300 mx-auto"
+            className="bg-white rounded-lg min-h-[500px] max-w-sm w-full space-y-4 shadow-lg p-10 text-center border mx-auto transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50"
           >
             <h3 className="text-lg font-bold mb-4">{card.title}</h3>
             <div className="flex justify-center mb-4 p-3">
