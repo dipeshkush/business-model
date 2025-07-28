@@ -28,7 +28,7 @@ export default function AIMLServices() {
         AI & ML Services Offered
       </motion.h2>
 
-      <div className="bg-[#5C63D1] max-w-2xl mx-auto text-left text-white p-8 rounded-xl shadow-md">
+      <div className="bg-[#5A59A9] max-w-2xl mx-auto text-left text-white p-8 rounded-xl shadow-md">
         {services.map((text, index) => (
           <motion.div
             key={index}

@@ -65,17 +65,17 @@ export default function AiAndMachineLearningHero() {
                     {/* Top-left Icon */}
                     <Image
                         ref={icon1Ref}
-                        src="/icons/Image2.png"
+                        src="/icons/aiicon1.png"
                         alt="Top Left Icon"
                         width={100}
                         height={50}
-                        className="hidden md:block absolute top-4 left-[260px] -translate-x-full -translate-y-1/2 z-20"
+                        className="hidden md:block absolute top-6 left-[260px] -translate-x-full -translate-y-1/2 z-20"
                     />
 
                     {/* Top-right Icon */}
                     <Image
                         ref={icon2Ref}
-                        src="/icons/Image3.png"
+                        src="/icons/aiicon2.png"
                         alt="Top Right Icon"
                         width={100}
                         height={60}
@@ -85,9 +85,9 @@ export default function AiAndMachineLearningHero() {
                     {/* Bottom-right Icon */}
                     <Image
                         ref={icon3Ref}
-                        src="/icons/image4.png"
+                        src="/icons/aiicon3.png"
                         alt="Bottom Right Icon"
-                        width={100}
+                        width={70}
                         height={60}
                         className="hidden md:block absolute bottom-2 -right-[-245px] z-20"
                     />

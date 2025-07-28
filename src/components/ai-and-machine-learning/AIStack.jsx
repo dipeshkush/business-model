@@ -6,32 +6,32 @@ const stack = [
     {
         title: 'Programming Language',
         items: 'Python, JavaScript (Node.js)',
-        color: 'bg-yellow-500',
+        color: 'bg-[#D2BD07]',
     },
     {
         title: 'Frameworks',
         items: 'TensorFlow, PyTorch, Keras, Scikit-Learn',
-        color: 'bg-amber-600',
+        color: 'bg-[#DE8431]',
     },
     {
         title: 'NLP & Chat',
         items: 'spaCy, NLTK, GPT-4 APIs, LangChain',
-        color: 'bg-rose-500',
+        color: 'bg-[#E55753]',
     },
     {
         title: 'Vision',
         items: 'OpenCV, YOLOv8, Tesseract OCR',
-        color: 'bg-pink-500',
+        color: 'bg-[#DE58A9]',
     },
     {
         title: 'Data',
         items: 'Pandas, NumPy, Matplotlib, DVC',
-        color: 'bg-purple-500',
+        color: 'bg-[#BA5DE5]',
     },
     {
         title: 'Deployment',
         items: 'Flask, FastAPI, AWS SageMaker, Docker',
-        color: 'bg-indigo-500',
+        color: 'bg-[#4E88E7]',
     },
 ];
 
