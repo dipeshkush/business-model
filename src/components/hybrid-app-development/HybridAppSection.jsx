@@ -35,27 +35,26 @@ export default function HybridAppSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center px-6 py-20 bg-black/80"
+      className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20 bg-black/80 overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
           src="/HAD.webp"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-60"
+          fill
+          className="object-cover w-full h-full opacity-60"
         />
       </div>
 
-      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-16">
+      <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12 sm:gap-16">
         {/* Left Content */}
         <div className="flex-1 text-center md:text-left">
           <h1
             ref={headingRef}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight"
           >
-            <span className="block whitespace-nowrap">
+            <span className="block">
               Top <span className="text-[#A3A0F4]">Hybrid App Development</span>
             </span>
             <span className="block mt-2">Company In Indore</span>
@@ -63,14 +62,14 @@ export default function HybridAppSection() {
 
           <p
             ref={subheadingRef}
-            className="text-white mt-2 text-lg font-medium"
+            className="text-white mt-2 text-base sm:text-lg font-medium"
           >
             Build Once. Run Anywhere.
           </p>
 
           <p
             ref={paragraphRef}
-            className="mt-6 text-gray-200 text-[16px] leading-relaxed max-w-xl"
+            className="mt-6 text-gray-200 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto md:mx-0"
           >
             As a leading hybrid app development company in Indore, WebSeeder helps businesses build powerful, cross platform mobile applications that work seamlessly across Android and iOS - all from a single codebase. We specialize in Flutter app development, React Native solutions and Ionic framework builds, combining native like performance with faster time to market.
             <br /><br />
@@ -78,7 +77,7 @@ export default function HybridAppSection() {
             Get a free consultation to explore how our cross platform app development services in India can accelerate your mobile strategy.
           </p>
 
-          <div ref={buttonRef} className="mt-8">
+          <div ref={buttonRef} className="mt-8 flex justify-center md:justify-start">
             <button
               type="button"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold"
@@ -89,18 +88,18 @@ export default function HybridAppSection() {
           </div>
         </div>
 
-        {/* Right Visual */}
-        <div className="flex-1 relative flex items-center justify-center">
+        {/* Right Visual (Now Appears After Text in Small Screens) */}
+        <div className="flex-1 flex justify-center items-center">
           <div
             ref={imageRef}
-            className="relative bg-white/10 p-4 md:p-6 rounded-full shadow-xl w-60 h-60 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] flex items-center justify-center border border-white/20"
+            className="relative bg-white/10 p-4 sm:p-6 rounded-full shadow-xl w-56 h-56 sm:w-72 sm:h-72 md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] flex items-center justify-center border border-white/20"
           >
             <Image
               src="/icons/had.svg"
               alt="Hybrid App"
-              width={600}
+              width={500}
               height={500}
-              className="rounded-full w-full h-auto z-10 hover:scale-105 transition-transform duration-300"
+              className="rounded-full w-full h-auto hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
