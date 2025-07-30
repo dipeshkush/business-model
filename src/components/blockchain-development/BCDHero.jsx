@@ -5,37 +5,53 @@ import Image from 'next/image';
 import { AiOutlinePhone } from 'react-icons/ai';
 
 export default function AiAndMachineLearningHero() {
-  const buttonRef = useRef(null);
   const sectionRef = useRef(null);
-  const imageRef = useRef(null);
   const headingRef = useRef(null);
-  const icon1Ref = useRef(null);
-  const icon2Ref = useRef(null);
-  const icon3Ref = useRef(null);
+  const para1Ref = useRef(null);
+  const para2Ref = useRef(null);
+  const buttonRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
-    if (!sectionRef.current || !imageRef.current) return;
+    if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
+      // Heading Animation
+      gsap.from(headingRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.1,
+        ease: 'power3.out',
+      });
+
+      // Paragraphs Animation
+      gsap.from([para1Ref.current, para2Ref.current], {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        delay: 0.4,
+        stagger: 0.2,
+        ease: 'power2.out',
+      });
+
+      // Button Animation
+      gsap.from(buttonRef.current, {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        delay: 1,
+        ease: 'back.out(1.7)',
+      });
+
+      // Image Animation (Right Block)
       gsap.from(imageRef.current, {
         opacity: 0,
         y: 50,
         duration: 1,
-        delay: 0.2,
+        delay: 0.5,
         ease: 'power3.out',
       });
-
-      gsap.from(
-        [icon1Ref.current, icon2Ref.current, icon3Ref.current].filter(Boolean),
-        {
-          opacity: 0,
-          scale: 0.8,
-          stagger: 0.2,
-          duration: 0.8,
-          delay: 0.4,
-          ease: 'back.out(1.7)',
-        }
-      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -46,7 +62,7 @@ export default function AiAndMachineLearningHero() {
       ref={sectionRef}
       className="relative w-full min-h-screen flex items-center justify-center px-6 py-20 text-white"
     >
-      {/* Background for desktop */}
+      {/* Desktop Background */}
       <div className="absolute inset-0 -z-20 hidden md:block">
         <Image
           src="/bcd.webp"
@@ -57,7 +73,7 @@ export default function AiAndMachineLearningHero() {
         />
       </div>
 
-      {/* Background gradient for mobile */}
+      {/* Mobile Gradient Background */}
       <div className="absolute inset-0 -z-20 block md:hidden bg-gradient-to-br from-[#1e3a8a] via-[#3b82f6] to-[#60a5fa]" />
 
       {/* Overlay */}
@@ -76,13 +92,19 @@ export default function AiAndMachineLearningHero() {
             <span className="block mt-2">Company In Indore</span>
           </h1>
 
-          <p className="mt-4 text-lg font-medium text-gray-200">
+          <p
+            ref={para1Ref}
+            className="mt-4 text-lg font-medium text-gray-200"
+          >
             WebSeeder offers end-to-end blockchain development services to help
             startups, fintechs, and enterprises build decentralized, secure, and
             future-ready applications.
           </p>
 
-          <p className="mt-8 text-gray-300 text-[16px] leading-relaxed max-w-xl">
+          <p
+            ref={para2Ref}
+            className="mt-8 text-gray-300 text-[16px] leading-relaxed max-w-xl"
+          >
             Whether you need a custom smart contract, crypto wallet,
             tokenization platform, or an entire blockchain-based SaaS, our team
             delivers robust, scalable solutions using Ethereum, Polygon, Solana,
@@ -105,8 +127,8 @@ export default function AiAndMachineLearningHero() {
           </div>
         </div>
 
-        {/* Optional Right Block */}
-        <div className="w-full md:w-1/2 hidden md:block" ref={imageRef} />
+        {/* Empty right block for layout */}
+        <div className="w-full md:w-1/2 hidden md:block" />
       </div>
     </section>
   );

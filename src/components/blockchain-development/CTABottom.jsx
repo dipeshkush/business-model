@@ -35,9 +35,8 @@ export default function CTABottom() {
         className="flex justify-center"
       >
         <motion.button
-          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-[#5B66AB] hover:bg-indigo-500 text-white font-medium py-3 px-6 rounded-full flex items-center gap-2 transition"
+          className="bg-[#5A59A9] hover:bg-[#7473B7] text-white font-medium py-3 px-6 rounded-full flex items-center gap-2 transition"
         >
           <AiOutlinePhone size={18} />
           Request a Free Blockchain Strategy Call
