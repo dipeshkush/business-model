@@ -1,40 +1,98 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import {
+  FaCode,
+  FaRocket,
+  FaWrench,
+  FaMobileAlt,
+  FaCheckCircle,
+  FaCloud,
+  FaBug,
+  FaTools,
+  FaSyncAlt,
+} from 'react-icons/fa';
 import { tiltNeon } from '@/app/layout';
+
+const iconStyle = 'text-[#5A59A9] text-lg md:text-xl mt-[2px]';
 
 const cardData = [
   {
     title: 'Why Hybrid Mobile Apps are the Future',
     img: '/icons/card1.png',
     points: [
-      'Cost Efficient  One codebase for both iOS & Android',
-      'Faster Time to Market  30 to 40% faster deployment',
-      'Easy Maintenance  Single app = easier updates & lower costs',
+      {
+        text: 'Cost Efficient  One codebase for both iOS & Android',
+        icon: <FaCode className={iconStyle} />,
+      },
+      {
+        text: 'Faster Time to Market  30 to 40% faster deployment',
+        icon: <FaRocket className={iconStyle} />,
+      },
+      {
+        text: 'Easy Maintenance  Single app = easier updates & lower costs',
+        icon: <FaWrench className={iconStyle} />,
+      },
     ],
   },
   {
     title: 'Why WebSeeder is Your Go To Hybrid App Development Partner in Indore',
     img: '/icons/card2.png',
     points: [
-      'Full Stack Expertise (Flutter, React Native, Ionic)',
-      'Pixel Perfect UI/UX optimized for all screens',
-      'Offline Capability and PWA ready builds',
-      'Core Web Vitals for Mobile',
-      'API & Backend Integration (Laravel, Node.js, Firebase)',
-      'Post Launch Support & App Store Publishing',
+      {
+        text: 'Full Stack Expertise (Flutter, React Native, Ionic)',
+        icon: <FaCode className={iconStyle} />,
+      },
+      {
+        text: 'Pixel Perfect UI/UX optimized for all screens',
+        icon: <FaMobileAlt className={iconStyle} />,
+      },
+      {
+        text: 'Offline Capability and PWA ready builds',
+        icon: <FaCloud className={iconStyle} />,
+      },
+      {
+        text: 'Core Web Vitals Optimization for Mobile Devices',
+        icon: <FaCheckCircle className={iconStyle} />,
+      },
+      {
+        text: 'API & Backend Integration (Laravel, Node.js, Firebase)',
+        icon: <FaSyncAlt className={iconStyle} />,
+      },
+      {
+        text: 'Post Launch Support & App Store Publishing',
+        icon: <FaWrench className={iconStyle} />,
+      },
     ],
   },
   {
     title: 'Cross Platform App Development Services We Offer',
     img: '/icons/card3.png',
     points: [
-      'Custom Hybrid App Development',
-      'Progressive Web App (PWA) Development',
-      'Migration to Hybrid Architecture',
-      'Enterprise Mobility Apps',
-      'App Testing & QA for Android/iOS',
-      'App Store Optimization (ASO)',
+      {
+        text: 'Custom Hybrid App Development Tailored to Your Business',
+        icon: <FaTools className={iconStyle} />,
+      },
+      {
+        text: 'Progressive Web App (PWA) Development',
+        icon: <FaCloud className={iconStyle} />,
+      },
+      {
+        text: 'Migration to Hybrid Architecture',
+        icon: <FaSyncAlt className={iconStyle} />,
+      },
+      {
+        text: 'Enterprise Mobility Apps',
+        icon: <FaMobileAlt className={iconStyle} />,
+      },
+      {
+        text: 'App Testing & QA for Android/iOS',
+        icon: <FaBug className={iconStyle} />,
+      },
+      {
+        text: 'App Store Optimization (ASO)',
+        icon: <FaCheckCircle className={iconStyle} />,
+      },
     ],
   },
 ];
@@ -44,15 +102,14 @@ export default function CardsSection() {
     <section className="py-16 px-4 bg-white">
       {/* Section Heading */}
       <div className="text-center mb-12 flex flex-col items-center">
-        <h1
-          className={` text-3xl sm:text-3xl lg:text-4xl ${tiltNeon.className}`}
-        >
+        <h1 className={`text-3xl sm:text-3xl lg:text-4xl ${tiltNeon.className}`}>
           Hybrid App Development Services
         </h1>
         <p className="text-base text-gray-600 mt-4 max-w-xl text-center">
           Everything you need to build powerful, cross-platform mobile apps
         </p>
       </div>
+
       {/* Cards Grid */}
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 justify-center">
         {cardData.map((card, index) => (
@@ -73,8 +130,9 @@ export default function CardsSection() {
             </div>
             <ul className="text-left text-md space-y-4">
               {card.points.map((point, i) => (
-                <li key={i} className="list-disc list-outside pl-4 leading-snug">
-                  {point}
+                <li key={i} className="flex items-start gap-3 leading-snug">
+                  <span>{point.icon}</span>
+                  <span>{point.text}</span>
                 </li>
               ))}
             </ul>
