@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { DollarSign, Clock, Users } from "lucide-react";
+import { FaHandHoldingUsd, FaClock, FaUsers } from "react-icons/fa";
 import Image from "next/image";
 import gsap from "gsap";
 
@@ -9,7 +9,7 @@ const models = [
   {
     title: "Fixed Cost Model",
     subtitle: "Best for Defined Projects",
-    icon: <DollarSign className="text-[#5A59A9]" size={24} />,
+    icon: <FaHandHoldingUsd className="text-[#5A59A9] text-4xl" />,
     image: "/fixedcost.svg",
     when: [
       "Clear requirements & timelines",
@@ -26,7 +26,7 @@ const models = [
   {
     title: "Hourly Model",
     subtitle: "Best for Small Tasks or Ongoing Tweaks",
-    icon: <Clock className="text-[#5A59A9]" size={24} />,
+    icon: <FaClock className="text-[#5A59A9] text-4xl" />,
     image: "/hourly.svg",
     when: [
       "Minor updates, bug fixes",
@@ -43,7 +43,7 @@ const models = [
   {
     title: "Dedicated Resource Model",
     subtitle: "Best for Scaling Startups & Agencies",
-    icon: <Users className="text-[#5A59A9]" size={24} />,
+    icon: <FaUsers className="text-[#5A59A9] text-4xl" />,
     image: "/dedicated.svg",
     when: [
       "You need full time talent without hiring overhead",
@@ -61,146 +61,135 @@ const models = [
 ];
 
 export default function WorkingModel() {
-  const [expanded, setExpanded] = useState(null);
-  const cardRefs = useRef([]);
+  const [selectedCard, setSelectedCard] = useState(0);
+  const detailsRef = useRef(null);
 
   useEffect(() => {
-    if (expanded !== null) {
+    if (detailsRef.current) {
       gsap.fromTo(
-        cardRefs.current[expanded],
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+        detailsRef.current,
+        { opacity: 0, y: 50, scale: 0.98 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.75,
+          ease: "power3.out",
+        }
       );
     }
-  }, [expanded]);
-
-  const handleClose = () => setExpanded(null);
-
+  }, [selectedCard]);
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-10 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-center text-[#5A59A9] mb-2">
+          <h2 className="text-3xl font-bold text-[#5A59A9] mb-2">
             Engagement Models We Offer
           </h2>
           <p className="text-md md:text-xl text-gray-600 max-w-2xl mx-auto">
             Choose the engagement style that fits your workflow, budget, and goals — from fixed projects to full-time resources.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-6 transition-all">
-          {models.map((model, idx) => {
-            const isActive = expanded === idx;
 
-            if (expanded !== null && !isActive) return null;
-
-            return (
-              <div
-                key={idx}
-                ref={(el) => (cardRefs.current[idx] = el)}
-                className={`relative flex flex-col md:flex-row w-full transition-all bg-white duration-500 ease-in-out border border-gray-200 rounded-2xl shadow-md overflow-hidden ${isActive ? "p-6" : "p-4 hover:shadow-xl hover:scale-[1.01]"
-                  }`}
-              >
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center gap-2">
-                    {model.icon}
-                    <h3 className="text-xl font-semibold text-[#5A59A9]">
-                      {model.title}
-                    </h3>
-                  </div>
-                  <p className="text-md italic text-gray-700">{model.subtitle}</p>
-
-                  {!isActive && (
-                    <button
-                      onClick={() => setExpanded(idx)}
-                      className="group mt-4 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-[#5A59A9] text-white transition-all duration-300 hover:bg-[#4c4ba1] hover:shadow-md hover:scale-105"
-                    >
-                      <svg
-                        className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                      View Details
-                    </button>
-
-                  )}
-
-                  {isActive && (
-                    <>
-                      <div className="bg-[#f9f9fd] rounded-xl p-6 mt-4 shadow-sm border border-[#e3e3f3] space-y-6 transition-all duration-500">
-                        {/* When to Choose */}
-                        <div>
-                          <h4 className="text-[#5A59A9] font-semibold text-sm uppercase mb-2">
-                            When to Choose
-                          </h4>
-                          <ul className="list-disc pl-5 text-gray-800 space-y-1">
-                            {model.when.map((item, i) => (
-                              <li key={i} className="leading-relaxed">{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* How It Works */}
-                        <div>
-                          <h4 className="text-[#5A59A9] font-semibold text-md uppercase mb-2">
-                            How It Works
-                          </h4>
-                          <p className="text-gray-800 leading-relaxed">{model.how}</p>
-                        </div>
-
-                        {/* Additional Details */}
-                        <div className="grid gap-2 text-gray-800 text-md">
-                          {model.details.map((line, i) => {
-                            const [label, rest] = line.split(":");
-                            return (
-                              <p key={i}>
-                                <span className="font-semibold text-[#5A59A9]">{label}:</span>
-                                <span className="ml-1">{rest}</span>
-                              </p>
-                            );
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Close Button */}
-                      <button
-                        onClick={handleClose}
-                        className="group mt-6 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-[#5A59A9] border border-[#5A59A9] rounded-full transition-all duration-300 hover:bg-[#5A59A9] hover:text-white hover:shadow-md"
-                      >
-                        <svg
-                          className="w-4 h-4 transition-transform duration-300 group-hover:rotate-90"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                        Close
-                      </button>
-
-                    </>
-                  )}
-
+        {/* Cards */}
+        <div className="flex flex-col md:flex-row gap-6 mb-8">
+          {models.map((model, idx) => (
+            <div
+              key={idx}
+              className={`flex-1 bg-white p-2 border border-gray-200 rounded-2xl shadow-lg transition-all duration-300 ease-in-out group hover:shadow-2xl relative overflow-hidden
+                  before:content-[''] before:absolute before:bottom-2 before:left-1/2 before:-translate-x-1/2 
+                  before:h-[2px] before:w-0 before:bg-[#5A59A9] before:rounded-full hover:scale-105 
+                  before:transition-all before:duration-300 group-hover:before:w-12`}
+            >
+              {/* Icon + Title */}
+              <div className="flex flex-col items-center text-center mb-2">
+                <div className="mb-2 text-[#5A59A9]">
+                  <span className="text-3xl">{model.icon}</span>
                 </div>
-
-                {isActive && (
-                  <div className="relative w-full md:w-[40%] h-64 md:h-auto mt-6 md:mt-0">
-                    <Image
-                      src={model.image}
-                      alt={model.title}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                )}
+                <h3 className="text-lg font-semibold text-[#5A59A9]">{model.title}</h3>
               </div>
-            );
-          })}
+
+              {/* Subtitle */}
+              <p className="text-sm text-gray-700 italic text-center">{model.subtitle}</p>
+
+              {/* Button */}
+              <div className="mt-4 flex justify-center">
+                <button
+                  onClick={() => setSelectedCard(idx)}
+                  className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300
+            ${selectedCard === idx
+                      ? "bg-[#5A59A9] text-white"
+                      : "bg-white text-[#5A59A9] border border-[#5A59A9]"}
+            hover:bg-[#4c4ba1] hover:text-white hover:shadow-md`}
+                >
+                  {selectedCard === idx ? "View Details" : "View Details"}
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
+        {/* Details Section */}
+        {selectedCard !== null && (
+          <div
+            ref={detailsRef}
+            className="bg-white border border-gray-200 p-8 rounded-2xl shadow-xl grid md:grid-cols-2 gap-10 transition-all duration-300"
+          >
+            {/* Content Section */}
+            <div className="space-y-8">
+              {/* Title with Icon */}
+              <div className="flex items-center gap-3">
+                <div className="text-4xl text-[#5A59A9]">{models[selectedCard].icon}</div>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#5A59A9]">
+                  {models[selectedCard].title}
+                </h2>
+              </div>
+
+              {/* When to Choose */}
+              <div>
+                <h4 className="text-[#5A59A9] font-semibold uppercase text-sm mb-2">When to Choose</h4>
+                <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                  {models[selectedCard].when.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* How it works */}
+              <div>
+                <h4 className="text-[#5A59A9] font-semibold uppercase text-sm mb-2">How It Works</h4>
+                <p className="text-gray-800 leading-relaxed">
+                  {models[selectedCard].how}
+                </p>
+              </div>
+
+              {/* Extra Details */}
+              <div className="border-t pt-4 space-y-2 text-gray-800">
+                {models[selectedCard].details.map((line, i) => {
+                  const [label, rest] = line.split(":");
+                  return (
+                    <p key={i}>
+                      <span className="font-semibold text-[#5A59A9]">{label}:</span>
+                      <span className="ml-1">{rest}</span>
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Image Section */}
+            <div className="relative w-full h-64 md:h-auto flex items-center justify-center">
+              <div className="w-full h-full relative">
+                <Image
+                  src={models[selectedCard].image}
+                  alt={models[selectedCard].title}
+                  fill
+                  className="object-contain rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   );

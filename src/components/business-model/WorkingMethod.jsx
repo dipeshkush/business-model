@@ -8,7 +8,7 @@ function AgileCard({ icon, title, desc, cardRef, style, isMobile }) {
     <div
       ref={cardRef}
       style={style}
-     className={`w-72 max-w-[90vw] p-6 bg-white rounded-2xl shadow-xl border border-blue-100 z-10 transition-all duration-700 ease-out
+     className={`w-72 max-w-[90vw] p-6 bg-white rounded-2xl shadow-2xl border border-blue-100 z-10 transition-all duration-700 ease-out
   ${isMobile ? "static my-3 opacity-100 transform-none" : "absolute opacity-0"}`}
     >
       <div className="flex items-center gap-3 mb-4">
@@ -126,9 +126,9 @@ export default function WorkingMethod() {
             ref={centerRef}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
           >
-            <div className="w-[580px] max-w-[90vw] h-[320px] rounded-full overflow-hidden shadow-2xl border-4 border-white bg-gradient-to-r from-blue-50 to-indigo-50 flex items-center justify-center">
+            <div className="w-[400px] ml-4 max-w-[90vw] h-[380px] overflow-hidden flex items-center justify-center">
               <img
-                src="/agile.webp"
+                src="/agile.png"
                 alt="Agile Process"
                 className="object-cover w-full h-full"
               />

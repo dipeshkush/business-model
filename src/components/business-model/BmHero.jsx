@@ -10,10 +10,39 @@ export default function BmHero() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const paraRef = useRef(null);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
+ 
   const words = ["Flexible.", "Transparent.", "Scalable."];
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopIndex, setLoopIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
 
+  useEffect(() => {
+    const currentWord = words[loopIndex % words.length];
+    const typingSpeed = isDeleting ? 50 : 100;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayedText(currentWord.substring(0, charIndex + 1));
+        setCharIndex((prev) => prev + 1);
+        if (charIndex + 1 === currentWord.length) {
+          setTimeout(() => setIsDeleting(true), 1000);
+        }
+      } else {
+        setDisplayedText(currentWord.substring(0, charIndex - 1));
+        setCharIndex((prev) => prev - 1);
+        if (charIndex - 1 === 0) {
+          setIsDeleting(false);
+          setLoopIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, loopIndex]);
+
+  // GSAP animations on scroll
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(headingRef.current, {
@@ -41,19 +70,10 @@ export default function BmHero() {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    // Word switcher loop
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % words.length);
-    }, 2000); // 2 seconds delay
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       ref={sectionRef}
-      className="relative bg-blue-50 overflow-hidden py-16"
+      className="relative bg-blue-50  py-16"
     >
       {/* Background Floating Bubbles */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -70,16 +90,13 @@ export default function BmHero() {
           className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800 mb-6 leading-tight text-center"
         >
           Business Engagement Models at{" "}
-          <span className="text-pink-600 animate-pulse">
-            WebSeeder
-          </span>
+          <span className="text-[#5A59A9]">WebSeeder</span>
           <span className="block mt-2 h-8">
-            <span className="inline-block transition-opacity duration-500 text-[#5A59A9] font-medium">
-              {words[currentWordIndex]}
+            <span className="inline-block text-[#5A59A9] font-medium border-r-2 border-[#5A59A9] pr-1 animate-typing">
+              {displayedText}
             </span>
           </span>
         </h1>
-
 
         <p
           ref={paraRef}

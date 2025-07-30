@@ -1,34 +1,20 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import { Send } from 'lucide-react';
 import gsap from 'gsap';
 import Image from 'next/image';
 
 export default function HybridAppSection() {
     const sectionRef = useRef(null);
     const imageRef = useRef(null);
-    const icon1Ref = useRef(null);
-    const icon2Ref = useRef(null);
-    const icon3Ref = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Main image animation
             gsap.from(imageRef.current, {
                 opacity: 0,
-                y: 50,
+                scale: 0.9,
                 duration: 1,
-                delay: 0.2,
-                ease: 'power3.out'
-            });
-
-            // Icons animation
-            gsap.from([icon1Ref.current, icon2Ref.current, icon3Ref.current], {
-                opacity: 0,
-                scale: 0.8,
-                stagger: 0.2,
-                duration: 0.8,
-                delay: 0.4,
-                ease: 'back.out(1.7)'
+                ease: 'power3.out',
             });
         }, sectionRef);
 
@@ -36,72 +22,65 @@ export default function HybridAppSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full px-4 py-16 text-center">
-            <div className="max-w-4xl mx-auto relative">
-                {/* Headings */}
-                <h1 className="text-3xl md:text-4xl font-semibold text-black leading-snug">
-                    Top <span className="text-[#6155D3] font-bold">Hybrid App Development</span><br />
-                    Company In Indore
-                </h1>
-                <p className="text-[#000004] mt-2">Build Once. Run Anywhere.</p>
+        <section
+            ref={sectionRef}
+            className="relative w-full min-h-screen flex items-center justify-center px-6 py-20 bg-black/80"
+        >
+            {/* Background Image */}
+            <div className="absolute inset-0 -z-10">
+                <Image
+                    src="/HAD.webp"
+                    alt="Background"
+                    layout="fill"
+                    objectFit="cover"
+                    className="opacity-60"
+                />
+            </div>
 
-                {/* Main Image with Positioned Icons */}
-                <div className="relative mt-14 flex justify-center items-center">
-                    {/* Center Image */}
-                    <div
-                        ref={imageRef}
-                        className="bg-[#C7DEA4] rounded-xl shadow-lg p-4 sm:p-6 max-w-[300px] w-full mx-auto"
-                    >
-                        <Image
-                            src="/icons/Image1.png"
-                            alt="Hybrid App"
-                            width={300}
-                            height={300}
-                            className="rounded-xl w-full h-auto z-10"
-                        />
+            <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-16">
+                {/* Left Content */}
+                <div className="flex-1 text-center md:text-left">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                        Top <span className="text-[#A3A0F4]">Hybrid App Development</span>
+                        <br />
+                        Company In Indore
+                    </h1>
+                    <p className="text-white mt-2 text-lg font-medium">
+                        Build Once. Run Anywhere.
+                    </p>
+
+                    <p className="mt-6 text-gray-200 text-[16px] leading-relaxed max-w-xl">
+                        As a leading hybrid app development company in Indore, WebSeeder helps businesses build powerful, cross platform mobile applications that work seamlessly across Android and iOS - all from a single codebase. We specialize in Flutter app development, React Native solutions and Ionic framework builds, combining native like performance with faster time to market.
+                        Whether you're a startup launching your MVP or an enterprise optimizing mobile reach, our hybrid apps are designed for speed, responsiveness, scalability and lower development cost - without compromising on performance or UX.
+                        Get a free consultation to explore how our cross platform app development services in India can accelerate your mobile strategy.
+
+                    </p>
+
+                    <div className="mt-8">
+                        <button
+                            type="button"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold "
+                        >
+                            Get Free Quote
+                            <Send size={18} className="text-white" />
+                        </button>
                     </div>
-
-                    {/* Top-left Icon */}
-                    <Image
-                        ref={icon1Ref}
-                        src="/icons/Image2.png"
-                        alt="Top Left Icon"
-                        width={100}
-                        height={50}
-                        className="hidden md:block absolute top-4 left-[260px] -translate-x-full -translate-y-1/2 z-20"
-                    />
-
-                    {/* Top-right Icon */}
-                    <Image
-                        ref={icon2Ref}
-                        src="/icons/Image3.png"
-                        alt="Top Right Icon"
-                        width={100}
-                        height={60}
-                        className="hidden md:block absolute top-1 right-[290px] translate-x-full -translate-y-1/2 z-20"
-                    />
-
-                    {/* Bottom-right Icon */}
-                    <Image
-                        ref={icon3Ref}
-                        src="/icons/image4.png"
-                        alt="Bottom Right Icon"
-                        width={100}
-                        height={50}
-                        className="hidden md:block absolute bottom-2 -right-[-245px] z-20"
-                    />
                 </div>
 
-                {/* Description */}
-                <p className="mt-10 text-gray-800 max-w-2xl mx-auto text-[16px] leading-relaxed text-left md:text-center px-2">
-                    We build seamless, scalable cross platform mobile apps using Flutter, React Native and Ionic – delivering native like performance across Android & iOS.
-                </p>
-
-                {/* CTA */}
-                <div className="mt-6 text-left md:text-center px-2">
-                    <a href="#contact" className="text-[#6155D3] font-semibold hover:underline">
-                        Get Free Quote
-                    </a>
+                {/* Right Visual */}
+                <div className="flex-1 relative flex items-center justify-center">
+                    <div
+                        ref={imageRef}
+                        className="relative bg-white/10 p-6 rounded-full shadow-xl w-[450px] h-[450px] flex items-center justify-center border border-white/20"
+                    >
+                        <Image
+                            src="/icons/had.svg"
+                            alt="Hybrid App"
+                            width={600}
+                            height={500}
+                            className="rounded-full w-full h-auto z-10 hover:scale-105 transition-transform duration-300"
+                        />
+                    </div>
                 </div>
             </div>
         </section>

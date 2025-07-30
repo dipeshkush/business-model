@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { tiltNeon } from '@/app/layout';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,7 +89,7 @@ export default function AgileProcessSection() {
       className="py-16 px-4 md:px-10 lg:px-20 text-center"
       ref={sectionRef}
     >
-      <h2 className="text-2xl md:text-3xl font-bold mb-16">
+      <h2 className={` text-3xl sm:text-3xl lg:text-4xl mb-16 ${tiltNeon.className}`}>
         Our Agile Development Process for Hybrid Apps
       </h2>
 

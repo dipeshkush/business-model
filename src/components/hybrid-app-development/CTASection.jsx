@@ -62,9 +62,12 @@ export default function CTASection() {
           viewport={{ once: true }}
           className="mt-6 flex justify-center"
         >
-          <button className="flex items-center justify-center gap-2 bg-indigo-500 text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-indigo-600 transition-all duration-300">
-            <PhoneCall size={20} />
-            Request a Callback
+          <button
+            type="button"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold "
+          >
+            Request Callback
+            <PhoneCall size={18} className="text-white" />
           </button>
         </motion.div>
       </div>

@@ -3,14 +3,13 @@ import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import {
     Briefcase,
-    Clock,
     Settings,
     DollarSign,
     UserCheck,
-    CalendarDays,
     Info,
     ArrowRightCircle,
 } from "lucide-react";
+import { FaHandHoldingUsd, FaClock, FaUsers } from "react-icons/fa";
 
 export default function PricingModel() {
     const [activeModel, setActiveModel] = useState(null);
@@ -30,7 +29,7 @@ export default function PricingModel() {
                 "Suitable For": "Startups, SMEs",
                 "Avg Pricing": "INR 25K - 1.2L",
             },
-            icon: <DollarSign className="text-[#3E3D77]" size={24} />,
+            icon: <FaHandHoldingUsd className="text-[#5A59A9] text-3xl" />,
             bg: "bg-[#5A59A9]/10",
             textColor: "#3E3D77",
         },
@@ -47,7 +46,7 @@ export default function PricingModel() {
                 "Suitable For": "Any business",
                 "Avg Pricing": "INR 499 - 899/hour",
             },
-            icon: <Clock className="text-[#B33659]" size={24} />,
+            icon: <FaClock className="text-[#5A59A9] text-3xl" />,
             bg: "bg-[#D14C74]/10",
             textColor: "#B33659",
         },
@@ -64,7 +63,7 @@ export default function PricingModel() {
                 "Suitable For": "Agencies, SaaS, Scale-ups",
                 "Avg Pricing": "INR 55K - 1.5L/month",
             },
-            icon: <Briefcase className="text-[#5A59A9]" size={24} />,
+            icon: <FaUsers className="text-[#5A59A9] text-3xl" />,
             bg: "bg-gradient-to-r from-[#5A59A9]/10 to-[#D14C74]/10",
             textColor: "#5A59A9",
         },
@@ -144,43 +143,38 @@ export default function PricingModel() {
                     </div>
 
                     {/* Right - Detail Panel */}
-                    <div className="relative border border-gray-200 rounded-2xl overflow-hidden min-h-[400px] shadow-inner transition">
-                        <div className="absolute inset-0">
-                            <img
-                                src="/PM.webp"
-                                alt="Background"
-                                className="w-full h-full object-cover filter blur-sm brightness-50"
-                            />
-                            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-                        </div>
-
+                    <div className="relative border border-gray-100 bg-gradient-to-r from-[#5A59A9]/10 to-[#D14C74]/10 rounded-2xl overflow-hidden min-h-[400px] shadow-inner transition">
                         {/* Detail Content */}
                         <div className="relative z-10 p-6 h-full text-center" key={activeModel?.id}>
                             {activeModel ? (
                                 <div>
                                     <h3 className="text-2xl font-bold mb-6 flex flex-col items-center justify-center gap-2">
                                         <div className="flex items-center gap-2 justify-center">
-                                            <Info size={22} className="text-white" />
-                                            <span className="text-white">{activeModel.title} Details</span>
+                                            {React.cloneElement(activeModel.icon, {
+                                                className: "text-[#5A59A9]",
+                                                size: 28,
+                                            })}
+                                            <span className="text-[#5A59A9]">{activeModel.title} Details</span>
                                         </div>
                                     </h3>
+
 
                                     <ul className="space-y-4 text-md text-left">
                                         {Object.entries(activeModel.details).map(([key, value], index) => (
                                             <li
                                                 key={key}
                                                 ref={(el) => (detailRef.current[index] = el)}
-                                                className="flex justify-between items-center py-2 border-b border-dashed border-white/30"
+                                                className="flex justify-between items-center py-2 border-b border-dashed border-[#5A59A9]"
                                             >
-                                                <span className="flex items-center gap-2 font-medium text-white">
+                                                <span className="flex items-center gap-2 font-semibold text-[#5A59A9]">
                                                     {(detailIcons[key] &&
                                                         React.cloneElement(detailIcons[key], {
-                                                            className: "text-white",
+                                                            className: "text-[#5A59A9]",
                                                             size: 18,
-                                                        })) || <Info size={16} className="text-white" />}
+                                                        })) || <Info size={16} className="text-black" />}
                                                     {key}
                                                 </span>
-                                                <span className="text-white text-right">{value}</span>
+                                                <span className="text-[#5A59A9] font-semibold text-right">{value}</span>
                                             </li>
                                         ))}
                                     </ul>

@@ -13,7 +13,7 @@ export default function StillUnsureSection() {
                     </h2>
                     <p className="text-gray-700 text-lg mb-6">
                         We understand that not all projects fit into predefined models. That’s why our solution consultants are here to help you choose the perfect approach based on your <span className="font-medium text-blue-700">goals</span>, <span className="text-indigo-700 font-medium">technology</span>, and 
-                        <span className="text-pink-700 font-medium">timeline</span>.
+                        <span className="text-pink-700 font-medium"> timeline</span>.
                     </p>
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4">

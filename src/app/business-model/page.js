@@ -3,7 +3,7 @@ import PricingModel from "@/components/business-model/PricingModel";
 import WorkingModel from "@/components/business-model/WorkingModel";
 import WorkingMethod from "@/components/business-model/WorkingMethod";
 import Contact from "@/components/business-model/Contact";
-import WorkingModelSection from "@/components/business-model/WorkingModelSelection";
+
 
 export default function Home() {
   return (
@@ -11,7 +11,6 @@ export default function Home() {
    <BmHero />
    <WorkingModel />
    <PricingModel />
-   <WorkingModelSection/>
    <WorkingMethod />
    <Contact />
    </>

@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import { tiltNeon } from '@/app/layout';
 
 const cardData = [
   {
@@ -41,6 +42,18 @@ const cardData = [
 export default function CardsSection() {
   return (
     <section className="py-16 px-4 bg-white">
+      {/* Section Heading */}
+      <div className="text-center mb-12 flex flex-col items-center">
+        <h1
+          className={` text-3xl sm:text-3xl lg:text-4xl ${tiltNeon.className}`}
+        >
+          Hybrid App Development Services
+        </h1>
+        <p className="text-base text-gray-600 mt-4 max-w-xl text-center">
+          Everything you need to build powerful, cross-platform mobile apps
+        </p>
+      </div>
+      {/* Cards Grid */}
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 justify-center">
         {cardData.map((card, index) => (
           <div
