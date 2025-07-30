@@ -16,7 +16,6 @@ export default function AiAndMachineLearningHero() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Heading Animation
       gsap.from(headingRef.current, {
         opacity: 0,
         y: 30,
@@ -25,7 +24,6 @@ export default function AiAndMachineLearningHero() {
         ease: 'power3.out',
       });
 
-      // Paragraphs Animation
       gsap.from([para1Ref.current, para2Ref.current], {
         opacity: 0,
         y: 20,
@@ -35,7 +33,6 @@ export default function AiAndMachineLearningHero() {
         ease: 'power2.out',
       });
 
-      // Button Animation
       gsap.from(buttonRef.current, {
         opacity: 0,
         y: 20,
@@ -44,7 +41,6 @@ export default function AiAndMachineLearningHero() {
         ease: 'back.out(1.7)',
       });
 
-      // Image Animation (Right Block)
       gsap.from(imageRef.current, {
         opacity: 0,
         y: 50,
@@ -60,16 +56,15 @@ export default function AiAndMachineLearningHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center px-6 py-20 text-white"
+      className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 text-white overflow-hidden"
     >
       {/* Desktop Background */}
       <div className="absolute inset-0 -z-20 hidden md:block">
         <Image
           src="/bcd.webp"
           alt="Blockchain Background"
-          layout="fill"
-          objectFit="cover"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover w-full h-full"
         />
       </div>
 
@@ -79,22 +74,22 @@ export default function AiAndMachineLearningHero() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 -z-10" />
 
-      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-16">
+      <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left Content */}
-        <div className="flex-1 text-left">
+        <div className="flex-1 text-center md:text-left">
           <h1
             ref={headingRef}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug break-words"
           >
-            <span className="block whitespace-nowrap">
-              Top <span className="text-[#A3A0F4]">BlockChain Development</span>
+            <span className="block">
+              <span className="text-[#A3A0F4]">BlockChain Development</span>
             </span>
             <span className="block mt-2">Company In Indore</span>
           </h1>
 
           <p
             ref={para1Ref}
-            className="mt-4 text-lg font-medium text-gray-200"
+            className="mt-4 text-base sm:text-lg text-gray-200"
           >
             WebSeeder offers end-to-end blockchain development services to help
             startups, fintechs, and enterprises build decentralized, secure, and
@@ -103,7 +98,7 @@ export default function AiAndMachineLearningHero() {
 
           <p
             ref={para2Ref}
-            className="mt-8 text-gray-300 text-[16px] leading-relaxed max-w-xl"
+            className="mt-6 text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl mx-auto md:mx-0"
           >
             Whether you need a custom smart contract, crypto wallet,
             tokenization platform, or an entire blockchain-based SaaS, our team
@@ -116,7 +111,7 @@ export default function AiAndMachineLearningHero() {
             real-world blockchain applications.
           </p>
 
-          <div className="mt-8" ref={buttonRef}>
+          <div className="mt-8 flex justify-center md:justify-start" ref={buttonRef}>
             <button
               type="button"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold"
@@ -127,8 +122,13 @@ export default function AiAndMachineLearningHero() {
           </div>
         </div>
 
-        {/* Empty right block for layout */}
-        <div className="w-full md:w-1/2 hidden md:block" />
+        {/* Right side filler block (optional) */}
+        <div
+          ref={imageRef}
+          className="w-full md:w-1/2 hidden md:block"
+        >
+          {/* Optional image or animation */}
+        </div>
       </div>
     </section>
   );
