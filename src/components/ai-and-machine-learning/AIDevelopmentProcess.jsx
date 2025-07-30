@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { tiltNeon } from '@/app/layout';
 import {
   FaRobot,
   FaDatabase,
@@ -54,7 +55,7 @@ export default function AIDevelopmentProcess() {
         initial={{ opacity: 0, y: -20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-2xl md:text-3xl font-semibold mb-4"
+        className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}
       >
         Our Proven AI/ML <br /> Development Process
       </motion.h2>
@@ -75,9 +76,9 @@ export default function AIDevelopmentProcess() {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-2xl bg-white transition-shadow duration-300 group cursor-default"
+            className="flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-[0_4px_20px_#D6F4F4] bg-white transition-shadow duration-300 group cursor-default"
           >
-            <div className="text-black group-hover:scale-110 transition-transform duration-300 mb-4">
+            <div className="text-[#00B4D8] group-hover:scale-110 transition-transform duration-300 mb-4">
               {step.icon}
             </div>
             <h3 className="text-lg font-semibold mb-1 text-gray-900">{step.title}</h3>

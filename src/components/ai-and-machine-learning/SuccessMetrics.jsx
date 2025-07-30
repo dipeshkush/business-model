@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { tiltNeon } from '@/app/layout';
 
 const metrics = [
   {
@@ -32,7 +33,7 @@ export default function SuccessMetrics() {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-2xl md:text-3xl font-semibold"
+        className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}
       >
         Success Metrics
       </motion.h2>
@@ -53,9 +54,9 @@ export default function SuccessMetrics() {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-[0_4px_20px_#D6F4F4] transition-shadow duration-300"
           >
-            <div className="text-2xl font-bold text-black mb-2">{metric.percentage}</div>
+            <div className="text-2xl font-bold text-[#00B4D8] mb-2">{metric.percentage}</div>
             <p className="text-sm text-gray-700">{metric.text}</p>
           </motion.div>
         ))}

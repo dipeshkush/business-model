@@ -10,7 +10,7 @@ const raleway = Raleway({
 
  export const tiltNeon = Tilt_Neon({
   subsets: ['latin'],
-  weight: ['400'], 
+  variable: '--font-tilt-neon',
 });
 
 // export const metadata = {

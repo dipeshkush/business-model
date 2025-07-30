@@ -1,5 +1,4 @@
-import AiAndMachineLearningHero from "@/components/ai-and-machine-learning/AiAndMachineLearningHero";
-import CTATop from "@/components/ai-and-machine-learning/CTATop";
+import AIMLHero from "@/components/ai-and-machine-learning/AIMLHero";
 import WhyAI from "@/components/ai-and-machine-learning/WhyAI";
 import AIMLServices from "@/components/ai-and-machine-learning/AIMLServices";
 import AIStack from "@/components/ai-and-machine-learning/AIStack";
@@ -10,8 +9,7 @@ import CTABottom from "@/components/ai-and-machine-learning/CTABottom";
 export default function Home() {
   return (
    <>
-    <AiAndMachineLearningHero />
-    <CTATop />
+    <AIMLHero />
     <WhyAI />
     <AIMLServices />
     <AIStack />

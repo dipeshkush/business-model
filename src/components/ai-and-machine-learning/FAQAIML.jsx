@@ -3,6 +3,7 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { tiltNeon } from "@/app/layout";
 
 const faqs = [
     {
@@ -41,7 +42,7 @@ export default function FAQSection() {
     return (
         <section className="py-20 px-6 bg-white">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-center text-xl md:text-2xl font-semibold mb-12">
+                <h2 className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}>
                     Frequently Asked <br className="md:hidden" /> Questions
                 </h2>
 

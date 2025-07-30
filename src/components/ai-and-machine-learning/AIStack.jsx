@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { tiltNeon } from '@/app/layout';
 
 const stack = [
     {
@@ -45,7 +46,7 @@ export default function AIStack() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="text-2xl md:text-3xl font-semibold mb-10"
+                className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}
             >
                 AI Is Only As Good As the Stack Behind It
             </motion.h2>

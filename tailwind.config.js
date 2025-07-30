@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Raleway', ...fontFamily.sans],
+        'tilt-neon': ['var(--font-tilt-neon)', ...fontFamily.sans],
       },
     },
   },

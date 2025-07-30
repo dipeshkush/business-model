@@ -2,6 +2,8 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaCheck } from 'react-icons/fa';
+import { tiltNeon } from '@/app/layout';
+
 
 const services = [
   'Custom AI Model Development (classification, regression, anomaly detection)',
@@ -23,12 +25,12 @@ export default function AIMLServices() {
         initial={{ opacity: 0, y: -20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-2xl md:text-3xl font-semibold mb-10"
+        className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}
       >
         AI & ML Services Offered
       </motion.h2>
 
-      <div className="bg-[#5A59A9] max-w-2xl mx-auto text-left text-white p-8 rounded-xl shadow-md">
+      <div className="bg-[#5A59A9] max-w-3xl mx-auto text-left text-white p-8 rounded-xl shadow-md">
         {services.map((text, index) => (
           <motion.div
             key={index}
