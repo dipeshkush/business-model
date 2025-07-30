@@ -112,19 +112,20 @@ export default function AgileProcessSection() {
                   </div>
                 </div>
                 <div className="hidden md:flex w-full md:w-1/2 justify-end mt-2 md:mt-0">
-                  <p className="text-gray-700">{step.description}</p>
+                  <p className="text-gray-800">{step.description}</p>
                 </div>
 
                 {/* Mobile */}
-                <div className="flex md:hidden flex-col w-full items-start text-left">
+                <div className="flex md:hidden flex-col w-full items-center text-center space-y-2">
                   <div
-                    className={`flex items-center gap-2 px-4 py-3 border font-semibold rounded-l-full rounded-r-md w-fit ${step.color}`}
+                    className={`flex items-center gap-2 px-4 py-2 border font-semibold rounded-full w-fit ${step.color}`}
                   >
-                    {step.icon}
-                    <span>{step.title}</span>
+                    <span className="text-base">{step.icon}</span>
+                    <span className="text-sm font-medium">{step.title}</span>
                   </div>
-                  <p className="text-gray-700 mt-1">{step.description}</p>
+                  <p className="text-gray-600 text-sm max-w-xs">{step.description}</p>
                 </div>
+
               </>
             ) : (
               <>
@@ -142,14 +143,14 @@ export default function AgileProcessSection() {
                 </div>
 
                 {/* Mobile */}
-                <div className="flex md:hidden flex-col w-full items-end text-right">
+                <div className="flex md:hidden flex-col w-full items-center text-center space-y-2">
                   <div
-                    className={`flex items-center gap-2 px-4 py-3 border font-semibold rounded-r-full w-fit ${step.color}`}
+                    className={`flex items-center gap-2 px-4 py-2 border font-semibold rounded-full w-fit ${step.color}`}
                   >
-                    {step.icon}
-                    <span>{step.title}</span>
+                    <span className="text-base">{step.icon}</span>
+                    <span className="text-sm font-medium">{step.title}</span>
                   </div>
-                  <p className="text-gray-700 mt-1">{step.description}</p>
+                  <p className="text-gray-600 text-sm max-w-xs">{step.description}</p>
                 </div>
               </>
             )}

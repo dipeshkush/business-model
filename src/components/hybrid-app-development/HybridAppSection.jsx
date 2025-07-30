@@ -39,19 +39,22 @@ export default function HybridAppSection() {
 
             <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-16">
                 {/* Left Content */}
-                <div className="flex-1 text-center md:text-left">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                        Top <span className="text-[#A3A0F4]">Hybrid App Development</span>
-                        <br />
-                        Company In Indore
+                <div className="flex-1 text-center md:text-left ">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left">
+                        <span className="block whitespace-nowrap">
+                            Top <span className="text-[#A3A0F4]">Hybrid App Development</span>
+                        </span>
+                        <span className="block mt-2">Company In Indore</span>
                     </h1>
+
+
                     <p className="text-white mt-2 text-lg font-medium">
                         Build Once. Run Anywhere.
                     </p>
 
                     <p className="mt-6 text-gray-200 text-[16px] leading-relaxed max-w-xl">
                         As a leading hybrid app development company in Indore, WebSeeder helps businesses build powerful, cross platform mobile applications that work seamlessly across Android and iOS - all from a single codebase. We specialize in Flutter app development, React Native solutions and Ionic framework builds, combining native like performance with faster time to market.
-                        Whether you're a startup launching your MVP or an enterprise optimizing mobile reach, our hybrid apps are designed for speed, responsiveness, scalability and lower development cost - without compromising on performance or UX.
+                        <br /> <br />Whether you're a startup launching your MVP or an enterprise optimizing mobile reach, our hybrid apps are designed for speed, responsiveness, scalability and lower development cost - without compromising on performance or UX.
                         Get a free consultation to explore how our cross platform app development services in India can accelerate your mobile strategy.
 
                     </p>
@@ -71,7 +74,7 @@ export default function HybridAppSection() {
                 <div className="flex-1 relative flex items-center justify-center">
                     <div
                         ref={imageRef}
-                        className="relative bg-white/10 p-6 rounded-full shadow-xl w-[450px] h-[450px] flex items-center justify-center border border-white/20"
+                        className="relative bg-white/10 p-4 md:p-6 rounded-full shadow-xl w-60 h-60 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] flex items-center justify-center border border-white/20"
                     >
                         <Image
                             src="/icons/had.svg"
@@ -82,6 +85,7 @@ export default function HybridAppSection() {
                         />
                     </div>
                 </div>
+
             </div>
         </section>
     );

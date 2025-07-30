@@ -1,6 +1,7 @@
 "use client";
 
 import { PhoneCall, Mail, MessageCircleMore, Info, BadgeIndianRupee } from "lucide-react";
+import { tiltNeon } from "@/app/layout";
 
 export default function StillUnsureSection() {
     return (
@@ -8,7 +9,7 @@ export default function StillUnsureSection() {
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
                 {/* LEFT: Message + CTA */}
                 <div>
-                    <h2 className="text-3xl sm:text-3xl font-bold text-gray-900 mb-4">
+                    <h2 className={`text-3xl sm:text-3xl font-bold text-gray-900 mb-4 ${tiltNeon.className}`}>
                         Still Unsure Which Model Works for You?
                     </h2>
                     <p className="text-gray-700 text-lg mb-6">

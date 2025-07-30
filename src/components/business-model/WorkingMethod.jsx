@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Target, Users, Zap, CheckCircle } from "lucide-react";
+import { tiltNeon } from "@/app/layout";
 
 function AgileCard({ icon, title, desc, cardRef, style, isMobile }) {
   return (
@@ -110,7 +111,7 @@ export default function WorkingMethod() {
   return (
     <section ref={sectionRef} className="relative bg-white px-4 py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto text-center mb-16">
-        <h2 className="text-3xl font-bold text-[#5A59A9] mb-4">
+        <h2 className={`text-3xl font-bold text-[#5A59A9] mb-4 ${tiltNeon.className}`}>
           Agile Development Process
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">

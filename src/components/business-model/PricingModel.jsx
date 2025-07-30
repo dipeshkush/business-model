@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
+import { tiltNeon } from "@/app/layout";
 import gsap from "gsap";
 import {
     Briefcase,
@@ -104,7 +105,7 @@ export default function PricingModel() {
             <div className="max-w-7xl mx-auto">
                 {/* Heading */}
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-3xl font-bold text-[#5A59A9] mb-4 tracking-tight">
+                    <h2 className={`text-3xl md:text-3xl font-bold text-[#5A59A9] mb-4 tracking-tight ${tiltNeon.className}`}>
                         Choose Your Perfect Pricing Model
                     </h2>
                     <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
