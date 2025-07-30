@@ -36,7 +36,7 @@ export default function CTABottom() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-[#5B66AB] hover:bg-indigo-500 text-white font-medium py-3 px-6 rounded-full flex items-center gap-2 transition"
+          className="bg-[#00B4D8] hover:bg-[#0D1C2A] text-white font-medium py-3 px-6 rounded-full flex items-center gap-2 transition"
         >
           <AiOutlinePhone size={18} />
           Talk to Our AI Team

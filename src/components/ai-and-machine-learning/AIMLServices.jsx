@@ -30,20 +30,22 @@ export default function AIMLServices() {
         AI & ML Services Offered
       </motion.h2>
 
-      <div className="bg-[#5A59A9] max-w-3xl mx-auto text-left text-white p-8 rounded-xl shadow-md">
+      <div className="bg-[#F2FBFB] max-w-3xl mx-auto text-left text-gray-800 p-8 rounded-xl shadow-sm border border-[#E0F2F2]">
         {services.map((text, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: index * 0.2, duration: 0.5 }}
+            transition={{ delay: index * 0.15, duration: 0.5 }}
             className="flex items-start gap-3 mb-4"
           >
-            <FaCheck className="mt-1 text-white text-md" />
+            <FaCheck className="mt-1 text-[#1FA2A2]" />
             <p className="text-sm md:text-base leading-snug">{text}</p>
           </motion.div>
         ))}
       </div>
     </section>
+
+
   );
 }

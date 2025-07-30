@@ -7,34 +7,35 @@ const stack = [
     {
         title: 'Programming Language',
         items: 'Python, JavaScript (Node.js)',
-        color: 'bg-[#D2BD07]',
+        color: 'bg-[#1FA2A2]',
     },
     {
         title: 'Frameworks',
         items: 'TensorFlow, PyTorch, Keras, Scikit-Learn',
-        color: 'bg-[#DE8431]',
+        color: 'bg-[#1FA2A2]',
     },
     {
         title: 'NLP & Chat',
         items: 'spaCy, NLTK, GPT-4 APIs, LangChain',
-        color: 'bg-[#E55753]',
+        color: 'bg-[#1FA2A2]',
     },
     {
         title: 'Vision',
         items: 'OpenCV, YOLOv8, Tesseract OCR',
-        color: 'bg-[#DE58A9]',
+        color: 'bg-[#1FA2A2]',
     },
     {
         title: 'Data',
         items: 'Pandas, NumPy, Matplotlib, DVC',
-        color: 'bg-[#BA5DE5]',
+        color: 'bg-[#1FA2A2]',
     },
     {
         title: 'Deployment',
         items: 'Flask, FastAPI, AWS SageMaker, Docker',
-        color: 'bg-[#4E88E7]',
+        color: 'bg-[#1FA2A2]',
     },
 ];
+
 
 export default function AIStack() {
     const ref = useRef(null);
