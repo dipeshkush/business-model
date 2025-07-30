@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { tiltNeon } from '@/app/layout';
 
 const steps = [
   {
@@ -40,7 +41,7 @@ export default function BlockchainProcessFlow() {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center pb-24 relative z-10">
-          <h2 className="text-3xl font-bold mb-2">
+          <h2 className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}>
             Our Process – Blockchain Development Lifecycle
           </h2>
           <p className="text-white/80 mb-6">

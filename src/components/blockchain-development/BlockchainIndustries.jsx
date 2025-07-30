@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { tiltNeon } from '@/app/layout'; 
 
 const industries = [
   {
@@ -47,7 +48,7 @@ export default function BlockchainIndustries() {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.h2
-          className="text-2xl md:text-3xl font-semibold text-gray-900"
+          className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}

@@ -1,4 +1,5 @@
 import React from "react";
+import { tiltNeon } from "@/app/layout";
 
 const techStack = [
   { title: "Protocols", items: ["Ethereum", "Polygon", "Solana", "BNB Chain", "Hyperledger"] },
@@ -13,7 +14,8 @@ const techStack = [
 export default function BlockchainTechStack() {
   return (
     <div className=" bg-white py-16 px-4 flex flex-col items-center">
-      <h2 className="text-3xl font-bold mb-2 text-center">Blockchain Tech Stack We Use</h2>
+      <h2 className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}>
+        Blockchain Tech Stack We Use</h2>
       <p className="text-gray-600 mb-10 text-center">
         Cutting-Edge Blockchain Technologies at Your Service
       </p>

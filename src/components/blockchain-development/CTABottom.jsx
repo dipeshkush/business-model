@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { motion, useInView } from 'framer-motion';
+import { tiltNeon } from '@/app/layout';
 
 export default function CTABottom() {
   const ref = useRef(null);
@@ -13,7 +14,7 @@ export default function CTABottom() {
         initial={{ opacity: 0, y: -20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-2xl md:text-2xl font-semibold text-gray-900 mb-4"
+        className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}
       >
        Ready to Launch on the Blockchain? Let’s Build It Right.
       </motion.h2>

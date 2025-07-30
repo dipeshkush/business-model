@@ -1,5 +1,4 @@
 import BCDHero from "@/components/blockchain-development/BCDHero";
-import CTATop from "@/components/blockchain-development/CTATop";
 import BlockchainBenefits from "@/components/blockchain-development/BlockchainBenefits";
 import Services from "@/components/blockchain-development/Services";
 import BlockchainTech from "@/components/blockchain-development/BlockchainTech";
@@ -12,7 +11,6 @@ export default function Home() {
   return (
    <>
    <BCDHero />
-   <CTATop />
    <BlockchainBenefits />
    <Services />
    <BlockchainTech />

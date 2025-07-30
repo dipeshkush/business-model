@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { tiltNeon } from '@/app/layout';
 
 const caseStudies = [
   {
@@ -24,7 +25,7 @@ export default function BlockchainSuccessStories() {
     <section className="bg-white py-20 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Section Title */}
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}>
           Our Blockchain in Action – Success Stories
         </h2>
 

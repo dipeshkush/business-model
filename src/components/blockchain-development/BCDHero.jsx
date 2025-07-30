@@ -2,115 +2,112 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Image from 'next/image';
+import { AiOutlinePhone } from 'react-icons/ai';
 
 export default function AiAndMachineLearningHero() {
-    const sectionRef = useRef(null);
-    const imageRef = useRef(null);
-    const icon1Ref = useRef(null);
-    const icon2Ref = useRef(null);
-    const icon3Ref = useRef(null);
+  const buttonRef = useRef(null);
+  const sectionRef = useRef(null);
+  const imageRef = useRef(null);
+  const headingRef = useRef(null);
+  const icon1Ref = useRef(null);
+  const icon2Ref = useRef(null);
+  const icon3Ref = useRef(null);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(imageRef.current, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                delay: 0.2,
-                ease: 'power3.out'
-            });
+  useEffect(() => {
+    if (!sectionRef.current || !imageRef.current) return;
 
-            gsap.from([icon1Ref.current, icon2Ref.current, icon3Ref.current], {
-                opacity: 0,
-                scale: 0.8,
-                stagger: 0.2,
-                duration: 0.8,
-                delay: 0.4,
-                ease: 'back.out(1.7)'
-            });
-        }, sectionRef);
+    const ctx = gsap.context(() => {
+      gsap.from(imageRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power3.out',
+      });
 
-        return () => ctx.revert();
-    }, []);
+      gsap.from(
+        [icon1Ref.current, icon2Ref.current, icon3Ref.current].filter(Boolean),
+        {
+          opacity: 0,
+          scale: 0.8,
+          stagger: 0.2,
+          duration: 0.8,
+          delay: 0.4,
+          ease: 'back.out(1.7)',
+        }
+      );
+    }, sectionRef);
 
-    return (
-        <section ref={sectionRef} className="w-full px-4 py-10 text-center">
-            <div className="max-w-4xl mx-auto relative">
-                {/* Headings */}
-                <h1 className="text-3xl md:text-4xl font-semibold text-black leading-snug">
-                    <span className="text-[#6155D3] font-bold">Blockchain Development</span>
-                    <br /> Company in Indore
-                </h1>
-                <p className="text-[#000004] mt-2">
-                    WebSeeder offers end-to-end blockchain development services to help startups,
-                    fintechs, and enterprises build decentralized, secure, and future-ready applications.
-                </p>
+    return () => ctx.revert();
+  }, []);
 
-                {/* Main Image with Positioned Icons */}
-                <div className="relative mt-14 flex justify-center items-center">
+  return (
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-screen flex items-center justify-center px-6 py-20 text-white"
+    >
+      {/* Background for desktop */}
+      <div className="absolute inset-0 -z-20 hidden md:block">
+        <Image
+          src="/bcd.webp"
+          alt="Blockchain Background"
+          layout="fill"
+          objectFit="cover"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-                    {/* Center Image */}
-                    <div
-                        ref={imageRef}
-                        className="bg-[#ACDE9A] rounded-xl shadow-lg p-4 sm:p-6 md:p-8 w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] mx-auto"
-                    >
-                        <Image
-                            src="/icons/bcdicon1.png"
-                            alt="Hybrid App"
-                            width={300}
-                            height={300}
-                            className="rounded-xl w-full h-auto z-10"
-                            priority
-                        />
-                    </div>
+      {/* Background gradient for mobile */}
+      <div className="absolute inset-0 -z-20 block md:hidden bg-gradient-to-br from-[#1e3a8a] via-[#3b82f6] to-[#60a5fa]" />
 
-                    {/* Top-left Icon */}
-                    <div
-                        ref={icon1Ref}
-                        className="hidden md:block absolute top-10 left-[260px] -translate-x-full -translate-y-1/2 z-20"
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 -z-10" />
 
-                    >
-                        <Image
-                            src="/icons/bcdicon2.png"
-                            alt="Top Left Icon"
-                            width={100}
-                            height={50}
-                        />
-                    </div>
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-16">
+        {/* Left Content */}
+        <div className="flex-1 text-left">
+          <h1
+            ref={headingRef}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left"
+          >
+            <span className="block whitespace-nowrap">
+              Top <span className="text-[#A3A0F4]">BlockChain Development</span>
+            </span>
+            <span className="block mt-2">Company In Indore</span>
+          </h1>
 
-                    {/* Top-right Icon */}
-                    <div
-                        ref={icon2Ref}
-                        className="hidden md:block absolute top-1 right-[260px] translate-x-full -translate-y-1/2 z-20"
-                    >
-                        <Image
-                            src="/icons/bcdicon3.png"
-                            alt="Top Right Icon"
-                            width={30}
-                            height={30}
-                        />
-                    </div>
+          <p className="mt-4 text-lg font-medium text-gray-200">
+            WebSeeder offers end-to-end blockchain development services to help
+            startups, fintechs, and enterprises build decentralized, secure, and
+            future-ready applications.
+          </p>
 
-                    {/* Bottom-right Icon */}
-                    <div
-                        ref={icon3Ref}
-                        className="hidden md:block absolute bottom-2 -right-[-245px] z-20"
-                    >
-                        <Image
-                            src="/icons/bcdicon4.png"
-                            alt="Bottom Right Icon"
-                            width={70}
-                            height={60}
-                        />
-                    </div>
-                </div>
+          <p className="mt-8 text-gray-300 text-[16px] leading-relaxed max-w-xl">
+            Whether you need a custom smart contract, crypto wallet,
+            tokenization platform, or an entire blockchain-based SaaS, our team
+            delivers robust, scalable solutions using Ethereum, Polygon, Solana,
+            and Hyperledger.
+            <br />
+            <br />
+            With deep experience in Web3, Solidity, Rust, Node.js, and secure
+            audit practices – WebSeeder helps you transform bold ideas into
+            real-world blockchain applications.
+          </p>
 
-                {/* Description */}
-                <p className="mt-10 text-gray-900 font-semibold max-w-2xl mx-auto text-[16px] leading-relaxed text-left md:text-center px-2">
-                    Whether you need a custom smart contract, crypto wallet, tokenization platform, or an entire blockchain-based SaaS, our team delivers robust, scalable solutions using Ethereum, Polygon, Solana, and Hyperledger.
-                    With deep experience in Web3, Solidity, Rust, Node.js, and secure audit practices - WebSeeder helps you transform bold ideas into real-world blockchain applications.
-                </p>
-            </div>
-        </section>
-    );
+          <div className="mt-8" ref={buttonRef}>
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold"
+            >
+              <AiOutlinePhone size={18} />
+              Book Free Blockchain Consultation
+            </button>
+          </div>
+        </div>
+
+        {/* Optional Right Block */}
+        <div className="w-full md:w-1/2 hidden md:block" ref={imageRef} />
+      </div>
+    </section>
+  );
 }

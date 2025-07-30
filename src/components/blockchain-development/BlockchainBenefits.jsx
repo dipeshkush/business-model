@@ -1,28 +1,29 @@
 'use client';
-import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { BsGraphUp, BsWallet2, BsClockHistory, BsFileEarmarkText } from 'react-icons/bs';
+import { tiltNeon } from '@/app/layout';
 
 const features = [
     {
         title: 'Trustless Transactions',
         desc: 'Remove intermediaries & reduce fraud',
-        icon: <BsGraphUp className="text-blue-500 text-xl" />,
+        icon: <BsGraphUp className="text-blue-500 text-3xl" />,
     },
     {
         title: 'Faster Settlements',
         desc: 'Real-time asset transfers and micro-payments',
-        icon: <BsWallet2 className="text-blue-500 text-xl" />,
+        icon: <BsWallet2 className="text-blue-500 text-3xl" />,
     },
     {
         title: 'Global & Interoperable',
         desc: 'Connect to multiple chains & wallets',
-        icon: <BsClockHistory className="text-blue-500 text-xl" />,
+        icon: <BsClockHistory className="text-blue-500 text-3xl" />,
     },
     {
         title: 'Immutable Records',
         desc: 'Ideal for audits, legal, and compliance',
-        icon: <BsFileEarmarkText className="text-blue-500 text-xl" />,
+        icon: <BsFileEarmarkText className="text-blue-500 text-3xl" />,
     },
 ];
 
@@ -36,7 +37,7 @@ export default function BlockchainBenefits() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="text-2xl md:text-3xl font-semibold mb-12"
+                className={`text-3xl md:text-3xl lg:text-4xl mb-10 text-center ${tiltNeon.variable} font-tilt-neon`}
             >
                 Why Blockchain? Why Now?
             </motion.h2>
@@ -47,9 +48,16 @@ export default function BlockchainBenefits() {
                         key={index}
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        whileHover={{ scale: 1.03, transition: { type: 'spring', stiffness: 300 } }}
-                        transition={{ duration: 0.4, delay: index * 0.2 }}
-                        className="flex items-start gap-4 bg-[#F6F6F6B2] p-6 rounded-xl shadow-lg text-left hover:bg-gray-100 hover:shadow-2xl will-change-transform origin-center"
+                        transition={{ duration: 0.3, delay: index * 0.15 }}
+                        whileHover={{
+                            scale: 1.02,
+                            transition: {
+                                type: 'spring',
+                                stiffness: 120,
+                                damping: 14,
+                            },
+                        }}
+                        className="flex items-start gap-4 bg-[#F6F6F6B2] p-6 rounded-xl shadow-sm text-left hover:bg-[#f0f0f0]"
                     >
                         <div className="flex-shrink-0">{feature.icon}</div>
                         <div>

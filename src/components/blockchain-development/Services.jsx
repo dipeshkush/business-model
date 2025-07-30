@@ -60,59 +60,73 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-16 px-4 bg-white">
-      {/* Title */}
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold"
-        >
-          Our Blockchain Development Services
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-base text-gray-600 mt-3"
-        >
-          Explore Our Blockchain Capabilities
-        </motion.p>
-      </div>
-
-      {/* Table-like layout */}
-      <div className="grid gap-2 justify-center max-w-3xl mx-auto">
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
+    <section ref={ref} className="py-16 px-4 bg-white w-full">
+      <div className="max-w-6xl mx-auto justify-center items-center flex flex-col">
+        {/* Title */}
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
-            className="grid grid-cols-[auto_8px_1fr] items-center gap-6"
+            transition={{ duration: 0.5 }}
+            className="text-3xl font-semibold"
           >
-            {/* Icon */}
-            <div className="w-16 h-16 flex items-center justify-center">
+            Our Blockchain Development Services
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-base text-gray-600 mt-3"
+          >
+            Explore Our Blockchain Capabilities
+          </motion.p>
+        </div>
+
+        {/* Grid layout */}
+        <div className="grid md:grid-cols-2 gap-10">
+          {services.slice(0, 6).map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="flex items-start gap-4 max-w-md w-full mx-auto"
+            >
               <Image
                 src={`/icons/${service.icon}`}
                 alt={service.title}
-                width={32}
-                height={32}
+                width={40}
+                height={40}
               />
-            </div>
+              <div className="text-left">
+                <h3 className={`font-semibold text-lg ${service.color}`}>{service.title}</h3>
+                <p className="text-md text-gray-600">{service.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Vertical Line */}
-            <div className={`h-12 w-0.5 rounded-full ${service.lineColor}`} />
-
-            {/* Title + Description */}
-            <div>
-              <h3 className={`font-semibold text-lg ${service.color}`}>
-                {service.title}
-              </h3>
-              <p className="text-sm text-gray-600">{service.desc}</p>
+        {/* Last item centered below */}
+        <div className="mt-12 flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 6 * 0.15 }}
+            className="flex items-start gap-4 max-w-md w-full mx-auto"
+          >
+            <Image
+              src={`/icons/${services[6].icon}`}
+              alt={services[6].title}
+              width={40}
+              height={40}
+            />
+            <div className="text-left">
+              <h3 className={`font-semibold text-lg ${services[6].color}`}>{services[6].title}</h3>
+              <p className="text-md text-gray-600">{services[6].desc}</p>
             </div>
           </motion.div>
-        ))}
+        </div>
+
       </div>
     </section>
   );
