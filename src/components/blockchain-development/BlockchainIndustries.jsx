@@ -7,7 +7,7 @@ const industries = [
   {
     title: 'FinTech',
     desc: 'DeFi apps, crypto lending, wallets',
-    icon: '/icons/fintech.png',
+    icon: '/icons/FinTech.png',
     bg: 'bg-purple-100',
   },
   {
