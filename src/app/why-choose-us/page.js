@@ -55,7 +55,7 @@ export default function WhyChooseUsPage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen font-raleway text-gray-800 overflow-x-hidden px-12">
+    <div className="bg-white min-h-screen font-raleway text-gray-800 overflow-x-hidden px-4 sm:px-6 lg:px-12">
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <HeroSection
           containerVariants={containerVariants}

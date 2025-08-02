@@ -7,8 +7,8 @@ import { SiMinutemailer } from "react-icons/si";
 
 export default function HeroSection({ containerVariants, itemVariants }) {
   return (
-    <section className="min-h-[90vh] flex items-center py-16 sm:py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center px-4 sm:px-8">
+    <section className="py-10 sm:py-14 md:py-20 min-h-screen">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center px-4 sm:px-6 md:px-8">
         {/* Text Section */}
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
           <motion.h1
@@ -18,7 +18,7 @@ export default function HeroSection({ containerVariants, itemVariants }) {
             Why Choose <span className="text-[#5c66ab]">WebSeeder?</span>
           </motion.h1>
 
-          <div className="space-y-5 mt-4 sm:mt-6">
+          <div className="space-y-7 mt-4 sm:mt-8">
             <motion.p variants={itemVariants} className="max-w-xl text-base sm:text-xl text-black font-semibold">
               Crafting Digital Experiences That Grow With You.
             </motion.p>
