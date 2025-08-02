@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Image from 'next/image';
-import { AiOutlinePhone } from 'react-icons/ai';
+import { SiMinutemailer } from 'react-icons/si';
 
 export default function AiAndMachineLearningHero() {
   const sectionRef = useRef(null);
@@ -112,13 +112,19 @@ export default function AiAndMachineLearningHero() {
           </p>
 
           <div className="mt-8 flex justify-center md:justify-start" ref={buttonRef}>
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold"
+            <a
+              href="/contact-us"
+              className="group inline-flex items-center justify-center bg-[#5058a0] hover:bg-[#394173] text-white rounded px-5 py-3 text-sm sm:text-base shadow-md gap-2 transition-all duration-300 transform"
             >
-              <AiOutlinePhone size={18} />
               Book Free Blockchain Consultation
-            </button>
+              <span className="relative w-[28px] h-[28px]">
+                <SiMinutemailer
+                  size={24}
+                  className="plane-icon transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                />
+                <span className="absolute inset-0 rounded-full blur-sm opacity-0 group-hover:opacity-100 group-hover:animate-ping"></span>
+              </span>
+            </a>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { PhoneCall } from 'lucide-react';
+import { SiMinutemailer } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
 export default function CTASection() {
@@ -54,7 +54,6 @@ export default function CTASection() {
           Our experts will reach out shortly
         </motion.p>
 
-        {/* Button */}
         <motion.div
           whileInView={{ opacity: 1, scale: 1 }}
           initial={{ opacity: 0, scale: 0.9 }}
@@ -62,14 +61,21 @@ export default function CTASection() {
           viewport={{ once: true }}
           className="mt-6 flex justify-center"
         >
-          <button
-            type="button"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold "
+          <a
+            href="/contact-us"
+            className="group inline-flex items-center justify-center font-bold bg-[#5c66ab] hover:bg-[#394173] text-white rounded px-5 py-3 text-sm sm:text-base font-semibold shadow-md gap-2 transition-all duration-300 "
           >
             Request Callback
-            <PhoneCall size={18} className="text-white" />
-          </button>
+            <span className="relative w-[28px] h-[28px]">
+              <SiMinutemailer
+                size={20}
+                className="transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+              <span className="absolute inset-0 rounded-full blur-sm opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+            </span>
+          </a>
         </motion.div>
+
       </div>
     </section>
   );

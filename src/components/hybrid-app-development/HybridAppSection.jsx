@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { Send } from 'lucide-react';
+import { SiMinutemailer } from 'react-icons/si';
 import gsap from 'gsap';
 import Image from 'next/image';
 
@@ -77,14 +77,21 @@ export default function HybridAppSection() {
             Whether you're a startup launching your MVP or an enterprise optimizing mobile reach, our hybrid apps are designed for speed, responsiveness, scalability and lower development cost - without compromising on performance or UX. Get a free consultation to explore how our cross platform app development services in India can accelerate your mobile strategy.
           </p>
 
+          {/* Updated Animated Button */}
           <div ref={buttonRef} className="mt-8 flex justify-center lg:justify-start">
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#5A59A9] text-white rounded-md shadow-md hover:bg-[#7473B7] transition duration-300 font-semibold"
+            <a
+              href="/contact-us"
+              className="group inline-flex items-center justify-center bg-[#5c66ab] hover:bg-[#394173] text-white rounded px-5 py-3 text-sm sm:text-base font-semibold shadow-md gap-2 transition-all duration-300 transform"
             >
               Get Free Quote
-              <Send size={18} className="text-white" />
-            </button>
+              <span className="relative w-[28px] h-[28px]">
+                <SiMinutemailer
+                  size={24}
+                  className="transform transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                />
+                <span className="absolute inset-0 rounded-full blur-sm opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+              </span>
+            </a>
           </div>
         </div>
 
