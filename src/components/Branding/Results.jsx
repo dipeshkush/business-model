@@ -34,13 +34,12 @@ export default function Results() {
       >
         Results That Speak – Growth We’ve Delivered
       </h2>
-      <p className="mt-2 text-gray-600 text-lg">
+      <p className="mt-2 mb-10 text-gray-600 text-lg">
         Case Studies & Results from WebSeeder Clients
       </p>
 
-      <hr className="w-16 border-gray-300 mx-auto my-10" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mt-10">
         {results.map((result, idx) => (
           <motion.div
             key={idx}
@@ -48,7 +47,7 @@ export default function Results() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: idx * 0.2 }}
-            className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow"
+            className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow"
           >
             <div className="mb-4">
               <Image
